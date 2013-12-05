@@ -112,3 +112,5 @@ Thanks to
     * Chris Brooke (@chrisbrooke) for patching around a backwards-incompatible change in ElasticSearch 2
     * Gilad Beeri (@giladbeeri) for adding retries when updating a backend
     * Arjen Verstoep (@terr) for a patch that allows attribute lookups through Django ManyToManyField relationships
+    * parruc for basic Whoosh faceting support
+    * Jens Kadenbach (audax) for updating and testing Whoosh faceting support
