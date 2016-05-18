@@ -47,6 +47,10 @@ from whoosh.searching import ResultsPage
 from whoosh.writing import AsyncWriter
 from whoosh.sorting import FieldFacet
 
+# Handle minimum requirement.
+if not hasattr(whoosh, '__version__') or whoosh.__version__ < (2, 5, 0):
+    raise MissingDependency("The 'whoosh' backend requires version 2.5.0 or greater.")
+
 
 DATETIME_REGEX = re.compile('^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})T(?P<hour>\d{2}):(?P<minute>\d{2}):(?P<second>\d{2})(\.\d{3,6}Z?)?$')
 LOCALS = threading.local()
