@@ -209,8 +209,7 @@ class AppModelManagementCommandTestCase(TestCase):
         call_command('clear_index', interactive=False, verbosity=0)
         self.assertEqual(self.solr.search('*:*').hits, 0)
 
-        with self.assertRaises(ImproperlyConfigured):
-            call_command('update_index', 'fake_app_thats_not_there', interactive=False)
+        self.assertRaises(ImproperlyConfigured, call_command, 'update_index', 'fake_app_thats_not_there', interactive=False)
 
         call_command('update_index', 'core', 'discovery', interactive=False, verbosity=0)
         self.assertEqual(self.solr.search('*:*').hits, 25)
